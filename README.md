@@ -4,6 +4,7 @@ NC_Updater.sh is a shell script for updating the Nextcloud Server inside the Fre
 This script will use OCC to search for update and if it is newer than the currently installed version the script will download and optionaly install the new version.
 It will create a simple log file NC_Updater.log, to save some info for future reference.
 
+![NC_Updater.sh](images/NC_Updater_force.png)
 
 ## Installation
 
