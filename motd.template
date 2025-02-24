@@ -1,0 +1,46 @@
+
+Welcome to FreeBSD!
+                          @@@@@@@@@@@@@@@@
+                        @@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@   @@@@@@  @@@@@@@@  @@@@@@   @@@@@@@@@@@
+      @@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@
+     @@@@@       @@@@@@@  @@@@@@    @@@@@@  @@@@@@@       @@@@@
+    @@@@ @@@@@@@@  @@@@  @@@@          @@@@  @@@@  @@@@@@@@ @@@@
+    @@@  @@@@@@@@@       @@@            @@@       @@@@@@@@@  @@@
+    @@   @@    @@@       @@              @@       @@@    @@   @@
+    @@@  @@@@@@@@@       @@@            @@@       @@@@@@@@@  @@@
+    @@@@  @@@@@@@  @@@@  @@@@          @@@@  @@@@  @@@@@@@  @@@@
+     @@@@@@     @@@@@@@@  @@@@@@    @@@@@@  @@@@@@@@     @@@@@@
+      @@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@
+         @@@@@@@@@    @@@@@@  @@@@@@@@  @@@@@@    @@@@@@@@@         
+                        @@@@@@@@@@@@@@@@@@@@
+                           @@@@@@@@@@@@@@
+    @@      @                 @         @                      @
+    @ @     @                 @         @                      @
+    @  @@   @  @@ @  @    @  @@@   @@@  @    @@@@   @   @   @@@@
+    @   @@  @ @    @  @  @    @   @     @   @     @ @   @  @   @
+    @     @ @ @@@@@    @@     @   @     @   @     @ @   @  @   @
+    @      @@ @       @  @    @   @     @   @     @ @   @  @   @
+    @       @  @@@@  @    @    @@  @@@   @@  @@@@    @@@    @@@
+                                                  
+sudo -u www php /usr/local/www/nextcloud/updater/updater.phar --no-backup
+sudo -u www php /usr/local/www/nextcloud/occ maintenance:mode --off && sudo -u www php occ db:add-missing-indices && sudo -u www php occ upgrade && sudo -u www php occ -V
+
+RESTART SERVICES     service caddy restart
+                     service php-fpm restart
+                     service mysql-server restart
+
+CHECK’S     sudo -u www php occ maintenance:mode
+            sudo -u www php occ upgrade
+            chown -R www:www nextcloud
+
+BACKUPS     cd /usr/local/www/nextcloud/data/updater-ocag80k8gvy8/backups
+            rm -r nextcloud-XX.X.X.X-XXXXXXXX
+
+REPAIR      sudo -u www php occ maintenance:repair
+            chown -R www:www /mnt/files
+            chmod -R 770 /mnt/files
+            sudo -u www php /usr/local/www/nextcloud/occ files:scan --all
+            sudo -u www php /usr/local/www/nextcloud/occ maintenance:repair --include-expensive
+            sudo -u www php /usr/local/www/nextcloud/occ trashbin:cleanup --all-users
+
