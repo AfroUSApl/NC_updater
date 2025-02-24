@@ -43,4 +43,3 @@ REPAIR      sudo -u www php occ maintenance:repair
             sudo -u www php /usr/local/www/nextcloud/occ files:scan --all
             sudo -u www php /usr/local/www/nextcloud/occ maintenance:repair --include-expensive
             sudo -u www php /usr/local/www/nextcloud/occ trashbin:cleanup --all-users
-
