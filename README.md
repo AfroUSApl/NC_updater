@@ -4,7 +4,7 @@ NC_Updater.sh is a shell script for updating the Nextcloud Server inside the Fre
 This script will use OCC to search for update and if it is newer than the currently installed version the script will download and optionaly install the new version.
 It will create a simple log file NC_Updater.log, to save some info for future reference.
 
-![NC_Updater.sh](images/NC_Updater_force.png)
+![NC_Updater.sh -force](images/NC_Updater_force.png)
 
 ## Installation
 
@@ -29,6 +29,11 @@ Run the script as root. The following options can be used:
    -scan     Script will only scan files for all users
    -force    This option will force to run all task to update the script
 ```
+
+![NC_Updater.sh -trash](images/NC_Updater_trash.png)
+
+![NC_Updater.sh -scan](images/NC_Updater_scan.png)
+
 When there is no option used, script will go ahead and check if there is a new update, if there is no new update it will stop and exit.
 If new updatet is detected, it will continue with all task to update Nextcloud to the newer version, with all necesarry steps.
 
