@@ -28,7 +28,8 @@ Run the script as root. The following options can be used:
 ```bash
    -trash    Script will only clean trashbins for all user
    -scan     Script will only scan files for all users
-   -force    This option will force to run all task to update the script
+   -update   to update installation with OCC
+   -force    to download and update Nextcloud from with the latest release
 ```
 
 ![NC_Updater.sh -trash](images/NC_Updater_trash.png)
