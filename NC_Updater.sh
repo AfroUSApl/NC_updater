@@ -51,13 +51,12 @@ elif [ "$OPTION" = "-update" ]; then
     sudo -u www php /usr/local/www/nextcloud/occ db:add-missing-indices
     echo -e "${GREEN}post update task finished.${NC}"
     exit 0
-fi
 elif [ "$OPTION" = "" ]; then
-    echo -e "${BLUE}Try to run NC-Updater.sh with one of this options:${NC}"
-#    sudo -u www php /usr/local/www/nextcloud/occ trashbin:cleanup --all-users >> /NC_update.log
+    echo -e "${BLUE}Try to run NC-Updater.sh with one of these options:${NC}"
     echo -e "${YELLOW}-trash	${GREEN}Trashbin cleanup for all users${NC}"
     echo -e "${YELLOW}-scan	${GREEN}Scan files for all users (occ files:scan --all)${NC}"
     echo -e "${YELLOW}-force	${GREEN}Force reinstallation even if Nextcloud is in the latest version${NC}"
+    echo -e "${YELLOW}-update	${GREEN}to update installation of Nextcloud${NC}"
     exit 0
 fi
 
